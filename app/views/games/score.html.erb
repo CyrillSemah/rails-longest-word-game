@@ -1,0 +1,9 @@
+<h1>Résultats de votre essai</h1>
+<p>Votre mot : <%= @word %></p>
+<p>Grille : <%= @letters.join(" ") %></p>
+<p>Temps pris : <%= @time_taken.round(2) %> secondes</p>
+<p>Score : <%= @score %></p>
+<p><%= @message %></p>
+<p>Score total : <%= session[:total_score] %></p>
+
+<%= link_to 'Nouvelle partie', new_path %>

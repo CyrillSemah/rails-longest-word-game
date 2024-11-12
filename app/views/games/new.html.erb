@@ -1,0 +1,18 @@
+<!-- app/views/games/new.html.erb -->
+
+<h1>Le Mot Le Plus Long</h1>
+<p>Voici votre grille de lettres :</p>
+<p><%= @letters.join(" ") %></p>
+
+<%= form_with url: score_path, method: :post, data: { turbo: false } do %>
+  <%= hidden_field_tag :letters, @letters.join(" ") %>  <!-- Champ caché pour letters -->
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :start_time, Time.now %>
+
+  <div class="form-group">
+    <label for="word">Quel est votre mot le plus long?</label>
+    <%= text_field_tag :word, nil, class: 'form-control', required: true %>
+  </div>
+
+  <%= submit_tag "Envoyer", class: 'btn btn-primary mt-3' %>
+<% end %>
